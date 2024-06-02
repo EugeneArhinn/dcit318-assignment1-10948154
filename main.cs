@@ -1,41 +1,25 @@
 using System;
 
-class Program 
+class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Enter a numerical grade between 0 and 100: ");
-        int grade = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter your age: ");
+        int age = Convert.ToInt32(Console.ReadLine());
 
-        if (grade < 0 || grade > 100)
+        decimal ticketPrice;
+        if (age <= 12 || age >= 65)
         {
-            Console.WriteLine("Invalid grade. Please enter a value between 0 and 100.");
-            return;
-        }
-
-        char letterGrade;
-        if (grade >= 90)
-        {
-            letterGrade = 'A';
-        }
-        else if (grade >= 80)
-        {
-            letterGrade = 'B';
-        }
-        else if (grade >= 70)
-        {
-            letterGrade = 'C';
-        }
-        else if (grade >= 60)
-        {
-            letterGrade = 'D';
+            ticketPrice = 7.00m;
+            Console.WriteLine("You are eligible for a discounted ticket price of GHC7.00.");
         }
         else
         {
-            letterGrade = 'F';
+            ticketPrice = 10.00m;
+            Console.WriteLine("You are not eligible for a discounted ticket price.");
         }
 
-        Console.WriteLine($"Your letter grade is: {letterGrade}");
+        Console.WriteLine($"Your ticket price is: GHC{ticketPrice:F2}");
         Console.ReadLine(); // wait for user to press Enter
     }
 }
