@@ -4,22 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Enter your age: ");
-        int age = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter side 1: ");
+        int side1 = Convert.ToInt32(Console.ReadLine());
 
-        decimal ticketPrice;
-        if (age <= 12 || age >= 65)
+        Console.Write("Enter side 2: ");
+        int side2 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter side 3: ");
+        int side3 = Convert.ToInt32(Console.ReadLine());
+
+        string triangleType;
+
+        if (side1 == side2 && side2 == side3)
         {
-            ticketPrice = 7.00m;
-            Console.WriteLine("You are eligible for a discounted ticket price of GHC7.00.");
+            triangleType = "Equilateral";
+        }
+        else if (side1 == side2 || side2 == side3 || side1 == side3)
+        {
+            triangleType = "Isosceles";
         }
         else
         {
-            ticketPrice = 10.00m;
-            Console.WriteLine("You are not eligible for a discounted ticket price.");
+            triangleType = "Scalene";
         }
 
-        Console.WriteLine($"Your ticket price is: GHC{ticketPrice:F2}");
+        Console.WriteLine($"The triangle is a {triangleType} triangle.");
         Console.ReadLine(); // wait for user to press Enter
     }
 }
